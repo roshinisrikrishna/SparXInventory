@@ -1,0 +1,57 @@
+<% layout('layout/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">ADD NEW PRODUCT</h1>
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+            <form action="/products" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                <label class="form-label" for="name">Enter Product Name</label>
+                
+        
+                <input class="form-control" type="text" id="name" name="name" placeholder="product name" required>
+                
+                </div>
+                <div class="mb-3">
+                <label class="form-label" for="price">Enter Product Price</label>
+                
+            
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">&#8377</span>
+                    <input type="number" class="form-control" placeholder="0" id="price" name="price" aria-label="price" aria-describedby="addon-wrapping">
+                </div>
+                </div>
+                <div class="mb-3">
+                <label class="form-label" for="warehouseqty">Enter Product Warehouse Stock</label>
+                
+        
+                <input class="form-control" type="number" id="warehouseqty" name="qty.warehouseStock"  required>
+                
+                </div>
+                <div class="mb-3">
+                <label  class="form-label" for="shopqty">Enter Product Shop Stock</label>
+                <input class="form-control" type="number" id="shopqty" name="qty.shopStock"  required>
+                
+                </div>
+                <div class="mb-3">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
+                </div>
+                            <!-- <div class="mb-3">
+                <label class="form-label" for="img">Change Product Image</label>
+                <input class="form-control" type="text" id="img" name="image" placeholder="image">
+                </div> -->
+                <div class="mb-3">
+
+                <button class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+    </div>

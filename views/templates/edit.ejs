@@ -1,0 +1,65 @@
+<% layout('layout/boilerplate')%>
+    <div class="row">
+
+        <h1 class="text-center">Edit <%=product.name%> details</h1>
+        <div class="col-6 offset-3">
+            <form action="/products/<%=product._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                <label class="form-label" for="name">Enter Product Name</label>
+                
+        
+                <input class="form-control" type="text" id="name" name="name" value="<%=product.name%>" required>
+                
+                </div>
+                <div class="mb-3">
+                <label class="form-label" for="price">Enter Product Price</label>
+                
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">&#8377</span>
+                    <input type="number" class="form-control" value="<%=product.price%>" id="price" name="price" aria-label="price" aria-describedby="addon-wrapping" required>
+                  </div>
+                
+                </div>
+                <div class="mb-3">
+                <label class="form-label" for="warehouseqty">Enter Product Warehouse Stock</label>
+                
+        
+                <input class="form-control" type="number" id="warehouseqty" name="qty.warehouseStock" value="<%=product.qty.warehouseStock%>" required>
+                
+                 </div>
+                 <div class="mb-3">
+                <label  class="form-label" for="shopqty">Enter Product Shop Stock</label>
+                
+        
+                <input class="form-control" type="number" id="shopqty" name="qty.shopStock" value="<%=product.qty.shopStock%>" required>
+                
+                </div>
+                <div class="mb-3">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="mb-3">
+                <label class="form-label" for="img">Change Product Image</label>
+
+            </div> -->
+            <div class="mb-3">
+                <% product.image.forEach(function(img,i){ %>
+                    <img src="<%=img.url%>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                    </div>
+                    <label for="image-<%=i%>">Delete</label>
+                <%}) %>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update</button>
+            </div>
+            </form>
+        </div>
+    </div>

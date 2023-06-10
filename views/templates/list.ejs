@@ -1,0 +1,32 @@
+    <% layout('layout/boilerplate')%>
+    <h1>All Products</h1>
+    <br>
+    <%for (let p of products){ %>
+        <br>
+        <div class="card" mb-3>
+            <div class="row">
+                <div class="col-md-4">
+                    <% if (p.image && p.image.length > 0) { %>
+
+                    <img class="img-fluid" alt="" src="<%=p.image[0].url%>">
+                    <%}%>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=p.name%></h5>
+                        <a class="btn btn-primary" href="/products/<%=p._id%>">View Product</a>
+                        <br>
+                        <br>
+                        <form action="/products/<%=p._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete Product</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   <% } %>
+   <br>
+
+   <a class="btn btn-primary" href="/products/new">Add Product</a>
